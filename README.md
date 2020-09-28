@@ -1,1 +1,1 @@
-# mbamission-webhook-catcher
+# Shopify Webhook Catcher
