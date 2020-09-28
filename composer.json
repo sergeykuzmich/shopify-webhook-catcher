@@ -1,0 +1,9 @@
+{
+    "name": "remedypointsolutions/mbamission-webhook-catcher",
+    "type": "project",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.2",
+        "mongodb/mongodb": "^1.7"
+    }
+}
