@@ -10,9 +10,9 @@ FROM php:7-apache
 RUN a2enmod rewrite
 # Enable mongodb extension & install libraries to support SSL protocol
 RUN apt-get update && \
-    apt-get install libssl-dev pkg-config --yes
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb
+    apt-get install libssl-dev pkg-config --assume-yes && \
+    pecl install mongodb && \
+    docker-php-ext-enable mongodb
 # Copy deps & src
 COPY --from=deps /deps/vendor ./vendor
 COPY index.php .
