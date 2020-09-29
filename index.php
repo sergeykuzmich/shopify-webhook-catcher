@@ -7,6 +7,11 @@ require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
+$app->get('/health', function (Request $request, Response $response, $args) {
+    $response->getBody()->write("OK");
+    return $response;
+});
+
 $app->post('/catch', function (Request $request, Response $response, $args) {
 
     # validate signature
