@@ -15,4 +15,5 @@ RUN apt-get update && \
     docker-php-ext-enable mongodb
 # Copy deps & src
 COPY --from=deps /deps/vendor ./vendor
+COPY .htaccess .
 COPY index.php .
