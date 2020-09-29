@@ -1,4 +1,4 @@
-name: Manual Workflow
+name: Automation Scripts
 
 on: workflow_dispatch
 
