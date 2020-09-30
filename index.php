@@ -24,9 +24,20 @@ $app->post('/catch', function (Request $request, Response $response, $args) {
     # store request
     $client = new MongoDB\Client(getenv('DB_DSN'));
     $collection = $client->shopify->webhooks;
+
+    $raw_headers = $request->getHeaders();
+    $raw_body = $request->getBody()->getContents();
+
+    $headers = [];
+    foreach ($raw_headers as $name => $values) {
+        $headers[$name] = implode(", ", $values);
+    }
+
+    $body = json_decode($raw_body);
+
     $result = $collection->insertOne([
-      'headers' => $request->getHeaders(),
-      'parsedBody' => json_decode($request->getBody()->getContents())
+      'headers' => $headers,
+      'body' => $body
     ]);
 
     # send success response to prevent re-sending webhook
