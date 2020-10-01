@@ -12,6 +12,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Run QA
         run: |
-          sed -i '' 's/target: application/target: qa/g' docker-compose.yml
+          sed -i s/target: application/target: qa/g' docker-compose.yml
           docker-compose build
           docker-compose up application
