@@ -16,8 +16,8 @@ RUN apt-get update && \
     pecl install mongodb && \
     docker-php-ext-enable mongodb
 COPY --from=deps /usr/bin/composer ./composer
-COPY --from=deps /deps/vendor ./vendor
 COPY src/ ./src/
+COPY --from=deps /deps/vendor ./vendor
 COPY .htaccess index.php composer.json composer.lock ./
 
 # Build QA image
@@ -25,8 +25,8 @@ FROM common AS qa
 RUN pecl install xdebug pcov && \
     docker-php-ext-enable xdebug pcov
 # Copy QA files
-COPY --from=deps /tmp/vendor/phpunit ./vendor/phpunit
 COPY . .
+COPY --from=deps /tmp/vendor/phpunit ./vendor/phpunit
 RUN ./composer dumpautoload && rm ./composer composer.*
 # Launch PHPUnit tests
 CMD ["vendor/bin/phpunit"]
