@@ -6,7 +6,6 @@ COPY composer.* ./
 RUN composer install --ignore-platform-reqs --no-autoloader
 RUN composer global require phpunit/phpunit "7.3.*"
 
-
 # Setup common layer
 FROM php:7-apache AS common
 # Enable Apache's ModRewrite
