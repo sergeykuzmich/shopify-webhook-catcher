@@ -1,7 +1,9 @@
 version: '3.7'
 services:
   application:
-    build: .
+    build:
+      context: .
+      target: qa
     environment:
       - DB_DSN=mongodb://database:27017
       - SHOPIFY_APP_SECRET=fa5c40f68b1f6df5bc460158de97c7cf

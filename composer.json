@@ -1,9 +1,19 @@
 {
-    "name": "remedypointsolutions/shopify-webhook-catcher",
+    "name": "segeykuzmich/shopify-webhook-catcher",
     "type": "project",
     "require": {
         "slim/slim": "4.*",
         "slim/psr7": "^1.2",
         "mongodb/mongodb": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "SWC\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "QA\\" : "tests/"
+        }
     }
 }
