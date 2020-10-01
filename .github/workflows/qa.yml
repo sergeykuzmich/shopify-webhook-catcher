@@ -10,8 +10,10 @@ jobs:
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v2
-      - name: Run QA
+      - name: Build Image
         run: |
           sed -i 's/target: application/target: qa/g' docker-compose.yml
           docker-compose build
+      - name: Run QA
+        run: |
           docker-compose up application
