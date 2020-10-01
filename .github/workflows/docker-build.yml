@@ -1,10 +1,10 @@
-name: Automation Scripts
+name: Build Docker Image
 
 on: workflow_dispatch
 
 jobs:
   build:
-    name: Proccess Dockerfile
+    name: Build & Upload Docker Image
     runs-on: ubuntu-latest
 
     steps:
